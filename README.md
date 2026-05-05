@@ -39,7 +39,6 @@ green27donguri-site/
 ├── .github/workflows/
 │   └── pages.yml      GitHub Pages 自動デプロイ
 ├── README.md
-├── LICENSE
 └── CHANGELOG.txt
 ```
 
@@ -139,6 +138,6 @@ push すれば `.github/workflows/pages.yml` が走って自動デプロイさ�
 - 森: `js/forest.js` の `COUNT` で本数、`treeShape()` で SVG パスを変更
 - 雲: `js/clouds.js` の `TIER_COUNTS` / `TIERS` で奥行き別の本数・サイズ・速度・透明度を調整
 
-## ライセンス
+## 著作権
 
-MIT License — `LICENSE` ファイルをご覧ください。
+© 2026 緑どんぐり — 本サイトのソースコード・文章・画像の無断転載を禁じます。
