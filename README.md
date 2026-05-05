@@ -2,7 +2,8 @@
 
 AIクリエイティブの制作を行う緑どんぐりの公式サイト。
 
-公開URL: https://green27donguri-cyber.github.io
+- リポジトリ: https://github.com/green27donguri/green27donguri.github.io
+- 公開URL: https://green27donguri.github.io/
 
 ## 構成
 
@@ -16,7 +17,7 @@ green27donguri-site/
 ├── pr.html            スポンサー募集
 ├── css/
 │   ├── base.css       リセット・カラートークン・タイポ
-│   ├── theme.css      レイアウト・コンポーネント・アニメーション・森レイヤー
+│   ├── theme.css      レイアウト・コンポーネント・アニメーション・森・雲レイヤー
 │   └── sprite.css     スプライト用スタイル
 ├── js/
 │   ├── config.js      サイト設定（GA ID）
@@ -24,16 +25,20 @@ green27donguri-site/
 │   ├── data.js        works データ（インライン）
 │   ├── sprite.js      JS駆動スプライト制御 + 物理 + 共有状態
 │   ├── effects.js     Canvas2D 葉っぱ・どんぐりパーティクル + マウス/スプライト連動
-│   ├── forest.js      SVG木シルエット背景レイヤー + 揺れ + スプライト近接反応
+│   ├── forest.js      SVG木シルエット背景レイヤー
+│   ├── clouds.js      SVG雲シルエット背景レイヤー
 │   ├── form.js        2グループフォーム
 │   └── cards.js       URLカード描画
 ├── data/
 │   └── works.json     works データ（canonical）
 ├── assets/
+│   ├── favicon.svg
 │   ├── hero_image.png profile メインビジュアル
 │   ├── ogp.png        OGP共通画像
 │   ├── shiba_sprite.png
 │   └── acorn_sprite.png
+├── .github/workflows/
+│   └── pages.yml      GitHub Pages 自動デプロイ
 ├── README.md
 ├── LICENSE
 └── CHANGELOG.txt
@@ -45,7 +50,7 @@ green27donguri-site/
 - Mintlify + Runway ハイブリッド（インフォグラフィック構造 + ヒーローバンドの主役感）
 - リアルタイムレンダリングの粒子場（Canvas2D・Three.js非採用）
 - index は「ゆったり」、詳細は「激しく」、ただし上品さを保つ
-- 背景に森のシルエット（霧がかった存在感）
+- 背景に雲（上空）+ 森（地上）のシルエット2層
 
 ## アクセシビリティ
 
@@ -83,6 +88,38 @@ python -m http.server 8000
 
 その後 `http://localhost:8000/` をブラウザで開きます。
 
+スマホからは同じWi-Fi経由で `http://<PCのIPv4>:8000/` でアクセス可能。
+
+## デプロイ手順
+
+このリポジトリは `main` ブランチへの push で自動的に GitHub Pages にデプロイされます。
+
+### 初回セットアップ
+
+1. GitHub 側で空の `green27donguri.github.io` リポジトリを先に作成（README/LICENSE等は付けず空のまま）
+2. ローカルで Git 初期化＆コミット → push：
+   ```
+   git init
+   git branch -M main
+   git add .
+   git commit -m "initial"
+   git remote add origin https://github.com/green27donguri/green27donguri.github.io.git
+   git push -u origin main
+   ```
+3. GitHub の **Settings → Pages**:
+   - Source: **GitHub Actions** を選択
+4. 数十秒で初回デプロイが完了し、`https://green27donguri.github.io/` で公開されます
+
+### 以降の更新
+
+```
+git add -A
+git commit -m "update"
+git push
+```
+
+push すれば `.github/workflows/pages.yml` が走って自動デプロイされます。
+
 ## 編集ガイド
 
 ### note記事の追加
@@ -97,13 +134,11 @@ python -m http.server 8000
 
 `assets/shiba_sprite.png` / `assets/acorn_sprite.png` を同じファイル名・透過PNGで差し替えてください。横8コマ前提。
 
-### パーティクルの調整
+### パーティクル・森・雲の調整
 
-`js/effects.js` 冒頭の `COUNTS` / `SETTINGS` で本数・速度・力場の半径などを調整できます。
-
-### 森の調整
-
-`js/forest.js` の `COUNT` で本数、`treeShape()` で木のSVGパスを変更できます。色味は `css/theme.css` の `.forest-tree { color: ... }`。
+- 粒子: `js/effects.js` 冒頭の `COUNTS` / `SETTINGS` で本数・速度・力場の半径などを調整
+- 森: `js/forest.js` の `COUNT` で本数、`treeShape()` で SVG パスを変更
+- 雲: `js/clouds.js` の `TIER_COUNTS` / `TIERS` で奥行き別の本数・サイズ・速度・透明度を調整
 
 ## ライセンス
 
