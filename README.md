@@ -2,8 +2,7 @@
 
 AIクリエイティブの制作を行う緑どんぐりの公式サイト。
 
-- リポジトリ: https://github.com/green27donguri/green27donguri.github.io
-- 公開URL: https://green27donguri.github.io/
+公開URL: https://green27donguri.github.io/
 
 ## 構成
 
