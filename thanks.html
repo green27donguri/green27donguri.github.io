@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>送信ありがとうございます — 緑どんぐり</title>
+<meta name="robots" content="noindex">
+<meta property="og:title" content="緑どんぐり | AIクリエイティブ制作">
+<meta property="og:description" content="面白いと思ったら、転がり続ける。">
+<meta property="og:image" content="assets/ogp.png">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/theme.css">
+<link rel="stylesheet" href="css/sprite.css">
+<style>
+.thanks-shell {
+  max-width: 580px; margin: 0 auto;
+  padding: 120px 24px 100px;
+  text-align: center;
+  position: relative;
+}
+.thanks-shell .acorn-illust {
+  width: 100px; height: 100px;
+  margin: 0 auto 36px;
+  animation: gentle-bob 3.5s ease-in-out infinite;
+}
+@keyframes gentle-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+.thanks-shell h1 { font-size: clamp(28px, 4vw, 36px); margin-bottom: 24px; letter-spacing: -1px; line-height: 1.2; }
+.thanks-shell p { color: var(--text-secondary); font-size: 15px; line-height: 1.9; margin: 0 0 8px; }
+.thanks-shell .home-cta { margin-top: 56px; }
+@media (max-width: 600px) {
+  .thanks-shell { padding: 80px 24px 80px; }
+}
+</style>
+<script src="js/config.js"></script>
+<script src="js/analytics.js"></script>
+</head>
+<body class="scene-calm">
+
+<div class="scene" aria-hidden="true"></div>
+
+<div class="sprite-track" aria-hidden="true">
+  <div class="sprite-pos shiba"><div class="sprite-stage"><div class="sprite sprite-shiba"></div></div></div>
+  <div class="sprite-pos acorn"><div class="acorn-physics"><div class="sprite-stage"><div class="sprite sprite-acorn"></div></div></div></div>
+</div>
+
+<div class="app">
+  <main class="thanks-shell">
+
+    <svg class="acorn-illust intro-build" data-delay="1" viewBox="0 0 100 100" fill="none" stroke="#3f6650" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <ellipse cx="50" cy="58" rx="28" ry="34" fill="#e7efe9"/>
+      <path d="M22 36 C 22 28 33 24 50 24 C 67 24 78 28 78 36 C 78 38 73 39 50 39 C 27 39 22 38 22 36 Z" fill="#5b8a6a" stroke="#3f6650"/>
+      <path d="M50 24 L 50 14"/>
+      <circle cx="42" cy="60" r="2.4" fill="#3f6650" stroke="none"/>
+      <circle cx="58" cy="60" r="2.4" fill="#3f6650" stroke="none"/>
+      <path d="M44 68 Q 50 73 56 68"/>
+    </svg>
+
+    <h1 class="intro-build" data-delay="2">届きました。<br>ありがとうございます。</h1>
+
+    <p class="intro-build" data-delay="3">本業の合間に確認しているので、</p>
+    <p class="intro-build" data-delay="3">週末あたりにご連絡することが多いです。</p>
+    <p class="intro-build" data-delay="3">もう少しだけお時間をください。</p>
+
+    <a class="home-cta intro-build" data-delay="4" href="index.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12 H 5"/><path d="M11 6 L 5 12 L 11 18"/></svg>
+      <span>トップへもどる</span>
+    </a>
+
+  </main>
+</div>
+
+<script src="js/sprite.js"></script>
+<script src="js/effects.js"></script>
+<script src="js/forest.js"></script>
+<script src="js/clouds.js"></script>
+
+</body>
+</html>

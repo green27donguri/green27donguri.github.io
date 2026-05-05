@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>緑どんぐり | AIクリエイティブ制作</title>
+<meta name="description" content="面白いと思ったら、転がり続ける。AIを使ったクリエイティブな制作、お手伝いします。">
+<meta property="og:title" content="緑どんぐり | AIクリエイティブ制作">
+<meta property="og:description" content="面白いと思ったら、転がり続ける。">
+<meta property="og:image" content="assets/ogp.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="緑どんぐり | AIクリエイティブ制作">
+<meta name="twitter:description" content="面白いと思ったら、転がり続ける。">
+<meta name="twitter:image" content="assets/ogp.png">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/theme.css">
+<link rel="stylesheet" href="css/sprite.css">
+<script src="js/config.js"></script>
+<script src="js/analytics.js"></script>
+</head>
+<body class="scene-calm">
+
+<div class="scene" aria-hidden="true"></div>
+
+<div class="sprite-track" aria-hidden="true">
+  <div class="sprite-pos shiba"><div class="sprite-stage"><div class="sprite sprite-shiba"></div></div></div>
+  <div class="sprite-pos acorn"><div class="acorn-physics"><div class="sprite-stage"><div class="sprite sprite-acorn"></div></div></div></div>
+</div>
+
+<div class="app">
+
+  <main class="page-shell">
+
+    <p class="eyebrow intro-build" data-delay="1"><span class="dot"></span>welcome</p>
+
+    <h1 class="h-display intro-build" data-delay="2">そこら辺に落ちてる<br>どんぐりです。</h1>
+
+    <div class="lead intro-build" data-delay="3">
+      <p>AIを使ったクリエイティブな制作、お手伝いします。<br>画像も、動画も、文章も、わりとなんでも転がります。</p>
+      <p>気軽に投げてもらえると、拾いにいきます。</p>
+    </div>
+
+    <form id="contact-form" class="form-card form-screen intro-build" data-delay="4" novalidate>
+
+      <div class="form-step">
+        <div class="form-step-header">
+          <span class="form-step-num">01</span>
+          <h2 class="form-step-title">基本情報</h2>
+          <svg class="form-step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="8" r="4"/>
+            <path d="M4 21 C 4 16.5 7.5 14 12 14 C 16.5 14 20 16.5 20 21"/>
+          </svg>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="f-name">お名前<span class="req">*</span></label>
+            <input id="f-name" type="text" name="name" required autocomplete="name">
+            <p class="err">お名前をご記入ください。</p>
+          </div>
+          <div class="field">
+            <label for="f-email">メールアドレス<span class="req">*</span></label>
+            <input id="f-email" type="email" name="email" required autocomplete="email">
+            <p class="err">正しいメールアドレスをご記入ください。</p>
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-site">公式サイト・SNSのリンク</label>
+          <input id="f-site" type="url" name="site" placeholder="https://...">
+          <p class="help">任意</p>
+        </div>
+      </div>
+
+      <div class="form-step">
+        <div class="form-step-header">
+          <span class="form-step-num">02</span>
+          <h2 class="form-step-title">お問い合わせ内容</h2>
+          <svg class="form-step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 5 H 20 V 17 H 7 L 4 20 Z"/>
+            <path d="M8 10 H 16"/><path d="M8 13 H 13"/>
+          </svg>
+        </div>
+        <div class="field">
+          <label for="f-kind">種別<span class="req">*</span></label>
+          <select id="f-kind" name="kind" required>
+            <option value="">選択してください</option>
+            <option value="pr">PR・スポンサー記事</option>
+            <option value="creative">AIクリエイティブ依頼</option>
+            <option value="consult">相談</option>
+            <option value="other">その他</option>
+          </select>
+          <p class="err">種別をお選びください。</p>
+        </div>
+        <div class="field">
+          <label for="f-body">内容<span class="req">*</span></label>
+          <textarea id="f-body" name="body" required placeholder="ご依頼の詳細・参考URL・予算感・ご希望の納期など、自由にご記入ください。"></textarea>
+          <p class="err">内容をご記入ください。</p>
+        </div>
+      </div>
+
+      <div class="honeypot" aria-hidden="true">
+        <label>もしお時間あれば、こちらの欄にURLをご記入ください
+          <input type="text" name="website" tabindex="-1" autocomplete="off">
+        </label>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn-primary">
+          入力内容を確認する
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12 H 19"/><path d="M13 6 L 19 12 L 13 18"/></svg>
+        </button>
+      </div>
+
+    </form>
+
+    <div id="confirm-screen" class="form-card confirm-screen">
+      <div class="form-step-header">
+        <span class="form-step-num">確認</span>
+        <h2 class="form-step-title">送信前にご確認ください</h2>
+        <svg class="form-step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12 L 10 17 L 19 7"/>
+        </svg>
+      </div>
+      <p class="confirm-intro">この内容で送信されます。修正したい場合は「戻って修正する」を押してください。</p>
+      <ul id="confirm-list" class="confirm-list"></ul>
+      <div class="form-actions">
+        <button type="button" id="confirm-back" class="btn-ghost">戻って修正する</button>
+        <button type="button" id="confirm-send" class="btn-primary">
+          送信する
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12 L 21 4 L 14 21 L 11 13 L 3 12 Z"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <section class="section intro-build" data-delay="5">
+      <div class="social-block">
+        <p class="lead-mini">転がっている様子は、こちらでも見られます。</p>
+        <div class="social-list">
+          <a class="social-pill" href="https://note.com/green_donguri" target="_blank" rel="noopener">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="4" y="4" width="16" height="16" rx="2"/>
+              <path d="M9 8 V 16 L 15 8 V 16"/>
+            </svg>
+            <span>note</span>
+          </a>
+          <a class="social-pill" href="https://x.com/green_donguri" target="_blank" rel="noopener">
+            <svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.7 3 H 20.6 L 14.3 10.2 L 21.7 21 H 15.9 L 11.4 14.6 L 6.2 21 H 3.3 L 10.1 13.3 L 3 3 H 8.9 L 13 8.9 L 17.7 3 Z M 16.7 19.2 H 18.3 L 8.4 4.7 H 6.7 L 16.7 19.2 Z"/>
+            </svg>
+            <span>X</span>
+          </a>
+          <a class="social-pill" href="https://www.youtube.com/@%E7%B7%91%E3%81%A9%E3%82%93%E3%81%90%E3%82%8A_27" target="_blank" rel="noopener">
+            <svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M21.6 7.2 C 21.4 6.3 20.7 5.6 19.8 5.4 C 18.1 5 12 5 12 5 C 12 5 5.9 5 4.2 5.4 C 3.3 5.6 2.6 6.3 2.4 7.2 C 2 8.9 2 12 2 12 C 2 12 2 15.1 2.4 16.8 C 2.6 17.7 3.3 18.4 4.2 18.6 C 5.9 19 12 19 12 19 C 12 19 18.1 19 19.8 18.6 C 20.7 18.4 21.4 17.7 21.6 16.8 C 22 15.1 22 12 22 12 C 22 12 22 8.9 21.6 7.2 Z M 10 15.2 V 8.8 L 15.5 12 Z"/>
+            </svg>
+            <span>YouTube</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <a class="home-cta intro-build" data-delay="6" href="profile.html">
+      <span>もう少し見ていく</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12 H 19"/><path d="M13 6 L 19 12 L 13 18"/></svg>
+    </a>
+
+  </main>
+
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/sprite.js"></script>
+<script src="js/effects.js"></script>
+<script src="js/forest.js"></script>
+<script src="js/clouds.js"></script>
+<script src="js/form.js"></script>
+
+</body>
+</html>

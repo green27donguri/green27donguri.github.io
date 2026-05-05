@@ -1,0 +1,74 @@
+.sprite-pos {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+  transform: translateX(-200px);
+  will-change: transform;
+}
+.acorn-physics {
+  will-change: transform;
+}
+.sprite-stage {
+  transform-origin: bottom center;
+  transform: scale(0.3);
+  will-change: transform;
+}
+
+.sprite {
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  pointer-events: none;
+  filter: drop-shadow(0 6px 10px rgba(20, 32, 24, 0.16));
+  will-change: background-position;
+}
+.sprite-shiba {
+  width: 180px;
+  height: 440px;
+  background-image: url("../assets/shiba_sprite.png");
+  background-size: 1440px 440px;
+}
+.sprite-acorn {
+  width: 180px;
+  height: 420px;
+  background-image: url("../assets/acorn_sprite.png");
+  background-size: 1440px 420px;
+}
+
+@keyframes sprite-walk {
+  from { background-position: 0 0; }
+  to   { background-position: -1440px 0; }
+}
+@keyframes sprite-move {
+  from { transform: translateX(-200px); }
+  to   { transform: translateX(calc(100vw + 200px)); }
+}
+
+.scene-calm .sprite-pos.shiba {
+  animation: sprite-move 22s linear infinite;
+}
+.scene-calm .sprite-pos.acorn {
+  animation: sprite-move 22s linear infinite;
+  animation-delay: 1.2s;
+}
+.scene-calm .sprite-shiba,
+.scene-calm .sprite-acorn {
+  animation: sprite-walk 1.2s steps(8) infinite;
+}
+
+.scene-active .sprite-pos.shiba {
+  animation: sprite-move 7s linear infinite;
+}
+.scene-active .sprite-pos.acorn {
+  animation: sprite-move 7s linear infinite;
+  animation-delay: 0.55s;
+}
+.scene-active .sprite-shiba,
+.scene-active .sprite-acorn {
+  animation: sprite-walk 0.64s steps(8) infinite;
+}
+
+@media (max-width: 600px) {
+  .sprite-stage { transform: scale(0.22); }
+  .sprite-track { height: 170px; }
+}
