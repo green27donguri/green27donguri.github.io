@@ -842,6 +842,23 @@ h1, h2, h3 { color: var(--text); margin: 0; }
   to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
+@media (max-width: 720px) {
+  .camera-pullback > .app {
+    animation: none;
+  }
+  .intro-build {
+    animation-duration: 0.4s;
+  }
+  .intro-build[data-delay="1"] { animation-delay: 0.02s; }
+  .intro-build[data-delay="2"] { animation-delay: 0.08s; }
+  .intro-build[data-delay="3"] { animation-delay: 0.14s; }
+  .intro-build[data-delay="4"] { animation-delay: 0.20s; }
+  .intro-build[data-delay="5"] { animation-delay: 0.26s; }
+  .intro-build[data-delay="6"] { animation-delay: 0.32s; }
+  .intro-build[data-delay="7"] { animation-delay: 0.38s; }
+  .intro-build[data-delay="8"] { animation-delay: 0.44s; }
+}
+
 @media (max-width: 600px) {
   .page-shell { padding: 18px 14px 100px; }
   .field-row { grid-template-columns: 1fr; }

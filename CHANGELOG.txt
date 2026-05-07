@@ -1,0 +1,427 @@
+CHANGELOG
+=========
+
+[v0.4.3] 2026-05-05
+-------------------
+README 最小化 + 開発メモを分離。
+
+- README は「サイトのクローンガイド」状態だったため、最小限に圧縮:
+  - 公開URLと著作権表示のみ
+  - 構成・アーキテクチャ・デプロイ手順・編集ガイドは README から削除
+- 開発メモを NOTES.md に分離（.gitignore 対象、ローカル限定）
+  - 上記の削除コンテンツは全て NOTES.md に保持
+  - GitHub 公開リポジトリでは NOTES.md は見えない
+- 結果: 公開リポジトリに残るのは「これは何のサイトか」の最小情報のみ
+  内部実装の解説・デプロイ手順・編集ガイドは外から見えなくなった
+
+[v0.4.2] 2026-05-05
+-------------------
+OGP正常化 + モバイル遷移高速化。
+
+OGP（og:image / twitter:image）の修正
+- 真因: 相対パス "assets/ogp.png" を使っていた
+  Open Graph 仕様では og:image は **絶対URL必須**。Twitter/X・Facebook・LINE などの
+  クローラーが相対URLを解決できず、画像が表示されない・キャッシュされない原因に
+- 修正: 全6ページで以下を実施
+  - og:image / twitter:image を絶対URL "https://green27donguri.github.io/assets/ogp.png" に
+  - og:url を各ページの canonical URL に明示
+  - link rel="canonical" 追加
+  - og:site_name = "緑どんぐり" 追加
+  - og:image:width=1731 / height=909 / alt="..." 追加
+  - og:locale="ja_JP" 追加
+  - twitter:image:alt 追加
+  - 各ページの og:title / og:description をページ固有に最適化
+    （旧: 全ページ共通 → 新: index/profile/services/works/pr で個別文言）
+- 検証ツール:
+  - https://www.opengraph.xyz/ （汎用プレビュー）
+  - https://cards-dev.twitter.com/validator （X用）
+  - https://developers.facebook.com/tools/debug/ （Facebook、要キャッシュ更新）
+
+モバイルのページ遷移もたつき解消
+- 原因: camera-pullback (0.65s) + intro-build cascade (最大1.18s delay + 0.85s) =
+  合計 ~2秒の入場演出が走り、モバイルの描画速度では「止まった」体感になっていた
+- 修正 (@media max-width: 720px):
+  - camera-pullback の animation を無効化（コンテンツ即表示）
+  - intro-build の duration を 0.85s → 0.4s に短縮
+  - delay を全段階で大幅短縮（max 1.18s → 0.44s）
+- 結果: モバイルで遷移後のコンテンツが ~0.5s 以内に出揃う
+  デスクトップは従来どおり上品な演出を維持
+
+[v0.4.1] 2026-05-05
+-------------------
+公開後の調整。
+
+ヘッダー sticky 復活
+- 横スクロール対策で入れた html/body { overflow-x: hidden } が
+  position: sticky を壊していた（CSS 仕様）
+- overflow-x: clip に変更（横はみ出し抑制 + sticky 動作 両立）
+
+Google Analytics 4 有効化
+- js/config.js に測定ID G-Z19J0WPJ1R を設定
+- 訪問者数・PV・流入元・デバイス等が記録されるように
+
+LICENSE 削除（個人サイト化）
+- MIT は誰でもコピーOK扱いになるため、個人ポートフォリオには不適
+- LICENSE ファイル削除 = デフォルト「無断転載禁止」（All Rights Reserved）に
+- 全ページに <footer class="site-copy">© 2026 緑どんぐり</footer> を追加
+- README の「ライセンス」節を「著作権」節に変更
+
+[v0.4.0] 2026-05-05
+-------------------
+リポジトリを user-page 方式に確定。
+
+- リポジトリ: https://github.com/green27donguri/green27donguri.github.io
+- 公開URL: https://green27donguri.github.io/
+  （username.github.io リポジトリなのでサブディレクトリなしのクリーンURL）
+- README の参照URLとgit clone手順を更新
+
+[v0.3.9] 2026-05-05
+-------------------
+（途中案）リポジトリURL再変更:
+- 旧案: https://github.com/green27donguri/profile
+
+[v0.3.8] 2026-05-05
+-------------------
+GitHub リポジトリ移管対応 + 自動デプロイ整備。
+
+- 旧リポジトリ案: https://github.com/green27donguri/green_donguri
+- 旧URL (green27donguri-cyber.github.io) の参照を全て置換
+
+新規ファイル
+- .github/workflows/pages.yml: main push 時に GitHub Pages へ自動デプロイ
+  - actions/checkout@v4
+  - actions/configure-pages@v5
+  - actions/upload-pages-artifact@v3
+  - actions/deploy-pages@v4
+- .gitignore: OS junk / IDE / 過去のJPGバックアップを除外
+
+README 更新
+- 公開URLとリポジトリURLを差し替え
+- デプロイ手順（git init → push → Settings→Pages→GitHub Actions選択）を追記
+
+絶対パス参照ゼロを確認済み（href="/..." / src="/..." 該当なし）
+サブディレクトリ公開 (/green_donguri/) でもリンク・アセット読み込みが破綻しない構成
+
+[v0.3.7] 2026-05-05
+-------------------
+モバイルの横スクロール解消。
+
+複数の要因が viewport を僅かにはみ出していたため複合対応:
+- html / body: overflow-x: hidden + max-width: 100vw を明示
+  fixed要素や子の overflow を確実に viewport で頭打ちに
+- .page-shell::before: inset 0 -40px → inset 0
+  blur 用の wash が左右 40px 外に出ていたのを viewport 内に収める
+- .hero-band: margin 0 calc(50% - 50vw) のフルブリード手法を廃止
+  代わりに breakpoint 別に明示的な margin で「広めに見せる」だけに
+  720px 以下では margin 0 で収める（モバイル安全）
+  720-1099px では space-5 ぶん左右に広げる
+  1100px 以上では -6% に広げる
+- .sprite-track: overflow visible → hidden
+  どんぐりのバウンドピーク (約58px) は track 高さ 220px - sprite 132 = 88px の余裕に収まるので
+  hidden に戻して横方向のはみ出しを完全に防ぐ
+
+[v0.3.6] 2026-05-05
+-------------------
+スマホでもヘッダーナビを表示するように変更。
+
+- @media (max-width: 600px):
+  - `.nav-links .nav-link { display: none }` を削除
+  - 代わりに padding: 6px 9px / font-size: 10.5px の compact 表示に
+  - brand のテキスト「green_donguri」を非表示（ドットだけ）でスペース確保
+  - nav-cta padding/font も少し縮小
+- @media (max-width: 380px) (極小):
+  - brand 完全非表示
+  - nav-link / nav-cta さらに padding/font 縮小
+  - 4タブ + contact + ドット + 余白 = 約260px（375px viewport に収まる）
+
+[v0.3.5] 2026-05-05
+-------------------
+雲と木の間隔調整 + works マガジン並び替え。
+
+雲を上空に集約
+- cloud-layer 高さ: 75vh → 55vh（下に伸びすぎないように）
+- 各階層の topVh 上限を引き下げ:
+  - far:  3-26  → 2-14
+  - mid:  8-38  → 5-22
+  - near: 16-52 → 10-28
+- 結果: 雲の最も低い位置 (near max bottom) が約 50vh から → 50vh より上に集約
+
+森の高さを少し抑えた
+- 近景の木: 34-54vh → 26-38vh
+- 遠景の木: 18-30vh → 14-22vh
+- 結果: 木の最も高い位置 (近景max) が 46vh from top → 62vh from top に下がった
+- 雲(50vh以下) と 木(62vh以上) のあいだに ~12vh のクリアな空間ができる
+
+works マガジン並び替え
+- 旧（古い順）: プロンプト基礎 → 答えのかたち → AIイラスト → 距離感
+- 新（新しい順）: 距離感 → AIイラスト → 答えのかたち → プロンプト基礎
+- js/data.js と data/works.json 両方反映
+
+[v0.3.4] 2026-05-05
+-------------------
+雲の視認性修正。
+
+- 雲の色を背景と同色 (#f3f6ee ≒ bg) → soft sage (#b9c7ad) に変更
+  RGB値で背景との差を ~5 → ~50 に拡大、目で識別できるレベルに
+- 雲の不透明度を全階層で増加:
+  - far:  0.04-0.08 → 0.10-0.18
+  - mid:  0.07-0.13 → 0.18-0.28
+  - near: 0.10-0.18 → 0.26-0.40
+- page-shell::before の白ウォッシュを大幅に弱める:
+  中心 0.92 → 0.45、中段 0.75 → 0.22
+  パーティクルが faint になったので元の強さは不要、雲が透けて見えるように
+
+[v0.3.3] 2026-05-05
+-------------------
+パーティクル微調整 + 雲レイヤー追加。
+
+パーティクル
+- サイズ縮小: leaf 7-14 → 3-6, acorn 6-10 → 3-6
+- 透明度低下: 0.55-0.95 → 0.08-0.18（ぐっと薄く、背景に溶け込む）
+- 数を半分以下: calm 22+10 → 8+4 / active 38+22 → 16+8
+
+背景の雲レイヤー（新規）
+- js/clouds.js を追加。森と同じパターンで SVG シルエット
+- 3 階層の奥行き（far/mid/near）:
+  - far: w 60-110px, opacity 0.04-0.08, blur 1.2-2.4, dur 140-240s
+  - mid: w 120-180px, opacity 0.07-0.13, blur 0.6-1.5, dur 85-150s
+  - near: w 200-320px, opacity 0.10-0.18, blur 0.0-0.7, dur 50-95s
+- 各雲: ランダム top (vh)・サイズ・速度・初期位置（負のdelayで画面散布）
+- ゆっくり右に流れる（calm = 元速度、active = 0.55倍速で速め）
+- z-index: 森と同じ 0 だが DOM順で森の上（パーティクルより下）
+- prefers-reduced-motion: アニメ無し、ランダム位置に静止
+- 3バリエーションの雲シェイプを順繰り使用
+
+CSS
+- .cloud-layer / .cloud-tile / @keyframes cloud-drift を theme.css に追加
+
+[v0.3.2] 2026-05-05
+-------------------
+スプライト点滅の真の原因解明 — ピクセル整数アライメント方式に統一。
+
+ユーザー提供の動作確認済み HTML を解析した結果、点滅の真因は
+**ブラウザのバックグラウンド画像補間によるサブピクセル位置ズレ**であった。
+- 旧: 要素 45×110 + bg-size 800% (= 360px) → 元画像 1440px を 4x ダウンスケール
+  各フレーム移動が 45px = 整数だが、bg 内部座標は 1440÷4=360 で 4の倍数しか整列せず
+  サブピクセル境界で1px未満のズレが発生 → 点滅として知覚
+
+- 新: 動作確認版と同じ pattern を採用
+  - 要素を **元画像のフレームサイズと同一** に設定 (180×440 / 180×420)
+  - background-size を **ピクセル値** で 1440×440 / 1440×420 に明示
+  - background-position を **ピクセル値** で 0 → -1440 に steps(8) 移動
+  - 表示サイズ調整は別レイヤー .sprite-stage の transform: scale で
+    （補間影響をスプライト本体から完全分離）
+
+- HTML構造に sprite-stage ラッパー追加（全6HTML）:
+  shiba: <sprite-pos><sprite-stage><sprite-shiba></...
+  acorn: <sprite-pos><acorn-physics><sprite-stage><sprite-acorn></...
+
+- sprite.js は frame cycling と X 移動の責務を CSS animation に戻し、
+  物理バウンド・位置トラッキング・可視性切替・マウス検知 のみに簡素化
+
+- sprite-track の overflow を visible に変更（scaled 表示なら BOX 領域でも
+  視覚的に飛び出さないため。jump も自由に上方向へ伸びる）
+
+- 表示サイズ: PC scale(0.3) → 54×132、モバイル scale(0.22) → 約40×97
+  以前の 45×110 と近いが、サブピクセル整列が完璧で点滅根絶
+
+[v0.3.1] 2026-05-05
+-------------------
+スクロール追従不具合・スプライト点滅・どんぐり初動・favicon の修正。
+
+詳細ページの背景がスクロール追従しなかった問題
+- 原因: body.camera-pullback の `perspective: 1200px` が祖先にあると
+  子の position: fixed がビューポート基準でなく body 基準になる仕様
+- 修正: perspective を完全削除、pullback アニメを 2D の translateY + scale に変更
+- 効果: forest-layer / particles-canvas / sprite-track が常時画面に追従するように
+
+スプライト点滅対策
+- スプライト画像は PNG（透過RGBA）を使用中で確定（CSSも .png 参照）
+- 「点滅」の正体は **off-screen → on-screen の reset 待ち時間が長すぎた**こと
+  - 旧: startX -160 + endX W+40 で off-screen 14% = calm 3.1秒の不在時間
+  - 新: startX -70 + endX W+70 で off-screen ~5% = calm 1.1秒に短縮
+- off-screen 中は visibility: hidden に切替（描画パイプライン負荷も軽減）
+- フレーム間隔を少し緩和: active 70→90ms, calm 130→150ms（鋭すぎるパッパッ感を緩和）
+
+どんぐり初動の不自然さ
+- 旧: 全どんぐりが一斉に画面上から落下 → 違和感
+- 新: 初回スポーン時のみY座標を3層に分散
+  - 35%: 画面上方の遠く（rand -2400〜-200px）→ あとから降ってくる
+  - 35%: 画面上半分（rand -200〜H*0.4）→ もう降下中
+  - 30%: 画面下半分（rand H*0.4〜H*0.85）→ もう着地間近
+- 18%は最初から fading 状態にして、不規則タイミングで自然なリスポーン開始
+
+favicon
+- assets/favicon.svg 作成（緑どんぐりイラスト）
+- 全HTMLに <link rel="icon" type="image/svg+xml"> 追加
+- 404エラー解消
+
+[v0.3.0] 2026-05-05
+-------------------
+要件改訂（実装後改善ログ）の全面反映。
+
+スプライトアニメをJS駆動に切り替え（点滅根絶）
+- CSS の steps() / step-end ベースで複数回トライしても点滅・停止が再発したため断念
+- sprite.js を JS駆動で再実装。requestAnimationFrame で X座標・フレーム・物理を統合管理
+- 各フレームの bg-position-x を decimal 計算で確実に -frame*100% に固定
+- どんぐりのバウンドも同じループ内で同期管理し、CSS keyframes との競合を排除
+- スプライト位置を window.__STAGE__ に公開し、パーティクル・森が読み取れるように
+
+パーティクル全面刷新
+- dot 廃止、葉っぱ60% / どんぐり40% の構成に
+- 数を削減: calm PC22+10 / SP12+6、active PC38+22 / SP20+10
+- 線のつながりも削除
+- 葉: 横風＋斜め落下＋ゆっくり回転＋wrap
+- どんぐり: 重力で落下→地面でバウンド→数回後にフェード→画面上部からリスポーン
+- 風の強さ: calm 0.18 / active 0.42、ジッターも追加
+
+オブジェクト連動（リアルタイム）
+- スプライト位置を中心に半径200-280pxで葉っぱ・どんぐりを加速＋上向き押上＋回転撹乱
+- マウス位置を中心に半径130pxでパーティクル散らし（mouseActiveが減衰しながら反応）
+- 木は最寄りスプライトの距離に応じて揺れ振幅が増幅（base 0.7-1.5deg → 最大+4deg）
+
+背景の森レイヤー追加
+- forest.js が body に .forest-layer を生成、その中に 5-9本のSVG木シルエット
+- 近景（高opacity, 低blur）と遠景（低opacity, 高blur）の混在で奥行き
+- z-index: 0 (粒子の後ろ、グラデーションの前)
+- 各木で独立した周期（4.5-9s）と振幅（0.7-1.5deg）の揺れ
+- スプライト通過時に近接した木が反応的に揺れを増幅
+
+Google Analytics 仕込み
+- js/config.js: window.SITE_CONFIG.ga4MeasurementId（空文字で無効化）
+- js/analytics.js: ID形式チェック後に gtag.js を動的ロード、anonymize_ip 有効
+- 全ページの head に組み込み済み
+
+テキストの読みやすさ強化
+- page-shell::before の不透明度を上げる: 0.74→0.92, 0.50→0.75, blur 18→28px
+- page-shell.wide::before も同値で明示的に上書き
+
+profile.html ヒーロー文言入替
+- h1: 「面白いと思ったら、転がり続ける。」（昇格）
+- tag: 「緑どんぐり、気づいたらここまで転がってきました。」（降格）
+
+index.html SNSブロック追加
+- 「もう少し見ていく」ボタンの上に profile と同じデザインの social-block
+- note / X / YouTube リンク
+
+ファイル構成
+- 新規: js/config.js / js/analytics.js / js/sprite.js / js/forest.js
+- 削除: なし
+- 全HTMLに config/analytics(head)、sprite/effects/forest(body末尾) のスクリプトタグ追加
+
+[v0.2.4] 2026-05-05
+-------------------
+スプライト歩行アニメ修正。
+
+- v0.2.2 で導入した step-end + 9キーフレームの方式が
+  Chrome で frame 0 のまま停止する挙動を引き起こしていた
+- canonical な `steps(N, jump-none)` パターンに置換
+  - keyframes: from 0% to -700%（8フレーム分の総移動量）
+  - timing: steps(8, jump-none) で 8つの値を均等に配置
+  - 各フレーム duration/8 で表示、最後の -700% は loop 直前まで保持
+  - これで「アニメは動く」かつ「末尾の空白フレームも出ない」を両立
+
+index.html
+- ボタン文言「緑どんぐりの本当の顔へ」→「もう少し見ていく」に変更
+
+[v0.2.3] 2026-05-05
+-------------------
+追加修正。
+
+スプライト点滅の追加対応
+- どんぐりのバウンドが大きすぎてsprite-track上端で頭が切れていた可能性に対処
+- sprite-track 高さを 140 → 220px（モバイル 110 → 170px）に拡大
+- 物理バウンドの初速 JUMP_VY: active 11→8、calm 7.5→5.5 に抑制
+- これでバウンド時に頭が切れる挙動を解消
+
+文字背景の追加（読みやすさ向上）
+- .page-shell に半透明の白い radial グラデーション wash を ::before で追加
+- パーティクルがコンテンツ中央域に侵入してきても、テキストは白いベール越しに読める
+- 加えて、見出し・リード・eyebrow に text-shadow ハロー追加（多重影で文字を白くフチ取り）
+- 結果: 中央のテキストエリアは粒子が薄まり、両サイドの余白では粒子がふわふわ浮く層構造に
+
+パーティクル安定化
+- 連続的なスプライト通過で rotSpeed が暴走しないようキャップを設定（active 0.08 / calm 0.04 rad/frame）
+- 0.995 の減衰も追加
+
+[v0.2.2] 2026-05-05
+-------------------
+追加修正。
+
+スプライト点滅の根本対応
+- 原因判明: CSS `steps(8)` が from 0% to -800% で t=1 の瞬間に「9コマ目（=画像範囲外の空白）」を描画してしまい、ループ毎に空白フレームが視認されていた
+- PNGの透過自体は問題なし（α=0 in 白部分、α=255 in 毛色部分を確認済み）
+- 修正: 8コマぶんのキーフレーム明示 + step-end タイミング関数で空白フレームを排除
+  ```css
+  @keyframes sprite-walk {
+    0%   { background-position-x: 0%; }
+    12.5% { background-position-x: -100%; }
+    ...
+    87.5% { background-position-x: -700%; }
+    100% { background-position-x: 0%; }  /* 明示的にframe 0へ戻す */
+  }
+  animation: sprite-walk 0.32s step-end infinite;
+  ```
+- step-end により各フレーム間で完全に位置がジャンプし、補間も発生しない
+
+カメラ引き演出の高速化
+- intro.js を完全削除（opacity 0→1 の 250ms フェードが不要だった）
+- camera-pullback アニメ: 1.6s → 0.65s に短縮
+- pullback距離: translateZ(-280) → -120 に緩和
+- これで詳細ページ遷移時の「一瞬止まる」感を解消
+
+[v0.2.1] 2026-05-05
+-------------------
+レビュー指摘の修正。
+
+スプライト点滅対応
+- JPGの白背景をJSで透過化する方式が不安定 → PowerShell + System.Drawing でオフライン変換
+- assets/{shiba,acorn}_sprite.png を RGBA で生成（白背景は完全透過、エッジはフェード）
+- sprite.css のパスを .jpg → .png に変更
+- js/sprite.js を削除（chroma key 不要に）。全HTMLからスクリプトタグも除去
+- スプライトサイズをフレーム比率に合わせて修正（shiba 45×110 / acorn 47×110）
+
+パーティクル刷新
+- 「漂うだけに見える」を解消するため形状を3種類に：
+  - dot（55%）: 従来のグロー粒子
+  - leaf（30%）: 緑の葉っぱ。回転しながら漂う
+  - acorn（15-20%）: 帽子つきどんぐり。ゆっくり回転
+- 風の方向を追加（windX +0.06〜0.32、windY -0.012〜-0.06）。葉っぱが舞い上がるような流れ
+- スプライト連動の力場を強化（半径200-280px、active時はrotSpeedにも作用）
+- swayで自然な揺らぎ（sin/cos × frequency）
+
+services.html
+- 「ご依頼から納品まで」セクションを再追加
+- フロー: お問い合わせ → すり合わせ → 1回目納品 → 修正と完了
+- ドラフト共有はせず、1回目を納品 → フィードバックで修正 → 合意で完了の流れ
+
+works/PR記事の説明拡充
+- data.js に body フィールドを追加（各記事の補足説明 1-2文）
+- cards.js でカード本文に body-line を追加描画
+- 各マガジンの中身が伝わる文章に書き換え
+
+スマホ対応強化
+- @600px / @720px / @380px の3段階メディアクエリ
+- h-display 28-38px、h-section 20-26px に縮小
+- hero-band 高さを 260-460px に圧縮、border-radius 緩和
+- glass-nav のブランド表示・nav-cta テキスト圧縮
+- term/info-card/url-card のpadding 縮小
+- sprite サイズ shiba 36×88 / acorn 38×88
+
+[v0.2.0] 2026-05-04
+-------------------
+要件改訂に伴い全面リニューアル。
+- 全ページ統一の Mintlify+Runway ハイブリッド（白基調・緑アクセント）
+- Canvas2D + rAF の粒子場（Three.js非採用）
+- profile.html ヒーローバンド（hero_image.png フルブリード）
+- 物理演算: どんぐりの上下バウンドを自前実装
+- スプライト z-index 背景レイヤー、JPG白背景化
+- フォーム2グループ・5項目（種別に「相談」追加）
+- works.html PR記事削除・noteマガジンのみ
+- OGP全ページ共通メタ
+- prefers-reduced-motion 自動オフ
+
+[v0.1.0] 2026-05-01
+-------------------
+初版作成。旧構成: 自然系×サイバー系の二人格。
+詳細は v0.2.0 でアーカイブ済み。
