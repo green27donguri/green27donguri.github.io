@@ -3,6 +3,7 @@
     {
       "title": "AIとの距離感",
       "description": "頼りすぎず、突き放しすぎず。日々のなかでAIをどう使うか、を綴ったエッセイ集。",
+      "body": "便利さと違和感のあいだ。仕事と生活の隣にAIがいる時代の、ちょうどいい付き合い方を探っていきます。",
       "url": "https://note.com/green_donguri/m/md19eb362db94",
       "image": "https://assets.st-note.com/production/uploads/images/261762384/8261d923110daedcdcf2edc9cb4edfde.png?width=432&dpr=2",
       "site": "note magazine"
@@ -10,6 +11,7 @@
     {
       "title": "AIイラストの考え方",
       "description": "プロンプトだけじゃない、絵作りに必要な「言葉以外の指示」のまとめ。",
+      "body": "構図・ライティング・カメラ・スタイル参照。AIで意図したビジュアルにたどり着くための、画づくりの基礎を綴っています。",
       "url": "https://note.com/green_donguri/m/m003da2d8d04b",
       "image": "https://assets.st-note.com/production/uploads/images/241215161/fd24c45fbb407218a5d8ead7b7daa025.png?width=432&dpr=2",
       "site": "note magazine"
@@ -17,6 +19,7 @@
     {
       "title": "AIの答えのかたち",
       "description": "同じ質問でも、聞き方ひとつで返ってくる「かたち」が変わる話。",
+      "body": "箇条書き・対話・物語・要約。出力フォーマットを意識すると、AIはずっと頼れる相棒になります。",
       "url": "https://note.com/green_donguri/m/m4fa183f2f21e",
       "image": "https://assets.st-note.com/production/uploads/images/240961744/5d59a56467ffa5859a5b369765b4f05a.png?width=432&dpr=2",
       "site": "note magazine"
@@ -24,6 +27,7 @@
     {
       "title": "【初心者向け】プロンプト基礎",
       "description": "役割・目的・出力形式など、AIに伝わる指示の組み立て方を、初学者向けにまとめたマガジン。",
+      "body": "「うまく言えない」を「ちゃんと届く」に変えるための入り口。プロンプトをはじめて学ぶ人や、基本を見直したい人へ。",
       "url": "https://note.com/green_donguri/m/mf1956d80851e",
       "image": "https://assets.st-note.com/production/uploads/images/213604015/9dbbf4a707624bb6ed370650c52d584c.png?width=432&dpr=2",
       "site": "note magazine"
@@ -33,6 +37,7 @@
     {
       "title": "Immersive Translateとの記録",
       "description": "AI翻訳ツール Immersive Translate を実際に使いながら届けるPR連載マガジン。",
+      "body": "英語が読めない私が、Webページ、動画字幕、画像の中の文字へ、少しずつ近づいていく記録です。",
       "url": "https://note.com/green_donguri/m/m969c598d1ac4",
       "image": "https://assets.st-note.com/production/uploads/images/291683758/ade313c584154e125715a110cb7424e2.png?fit=bounds&format=jpeg&height=1024&quality=85&width=1024",
       "site": "note magazine",
@@ -41,6 +46,7 @@
     {
       "title": "Pollo AIとの記録",
       "description": "AI動画・画像生成サービス Pollo AI を使い込んでいく連載マガジン。",
+      "body": "新しいAIツールを実際に触り、どこまでできるか、どんな表現に向くかを率直にレポートしています。",
       "url": "https://note.com/green_donguri/m/mcb15f952d60f",
       "image": "https://assets.st-note.com/production/uploads/images/271601088/4fbbd32bfaebc0cd9243164a7a9be58d.png?width=432&dpr=2",
       "site": "note magazine",
@@ -49,6 +55,7 @@
     {
       "title": "新生活の聞き漏らしを防ぐ、ポケットの中のAI Notta Memo",
       "description": "ポケットサイズのAIレコーダー Notta Memo の体験レポート。",
+      "body": "授業や打ち合わせの聞き漏らしを、文字起こし・翻訳・要約で支えてくれる端末を、新生活の文脈で紹介しました。",
       "url": "https://note.com/green_donguri/n/n2428f8914494",
       "image": "https://assets.st-note.com/production/uploads/images/262794407/rectangle_large_type_2_e5dcde3180bfcd96d3eca530b052b37f.jpg?width=1280",
       "site": "note article",
