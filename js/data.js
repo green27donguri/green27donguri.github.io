@@ -35,6 +35,15 @@ window.__WORKS__ = {
   ],
   pr: [
     {
+      title: "Immersive Translateとの記録",
+      description: "AI翻訳ツール Immersive Translate を実際に使いながら届けるPR連載マガジン。",
+      body: "英語が読めない私が、Webページ、動画字幕、画像の中の文字へ、少しずつ近づいていく記録です。",
+      url: "https://note.com/green_donguri/m/m969c598d1ac4",
+      image: "https://assets.st-note.com/production/uploads/images/291683758/ade313c584154e125715a110cb7424e2.png?fit=bounds&format=jpeg&height=1024&quality=85&width=1024",
+      site: "note magazine",
+      kind: "PR"
+    },
+    {
       title: "Pollo AIとの記録",
       description: "AI動画・画像生成サービス Pollo AI を使い込んでいく連載マガジン。",
       body: "新しいAIツールを実際に触り、どこまでできるか、どんな表現に向くかを率直にレポートしています。",
