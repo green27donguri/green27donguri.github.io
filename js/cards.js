@@ -1,4 +1,6 @@
 (function () {
+  const DATA_URL = 'data/works.json';
+
   function fallbackSvg() {
     return '<div class="thumb-fallback">' +
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">' +
@@ -35,7 +37,7 @@
     if (isPR) {
       badge.innerHTML =
         '<svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5h18v3H3zM3 11h18v3H3zM3 17h12v3H3z"/></svg>' +
-        'PR / Sponsor';
+        'PR';
     } else {
       const isArticle = item.site && item.site.indexOf('article') >= 0;
       badge.innerHTML =
@@ -74,8 +76,36 @@
     return card;
   }
 
-  function render() {
-    const data = window.__WORKS__ || {};
+  async function loadData() {
+    const response = await fetch(DATA_URL, { cache: 'no-store' });
+    if (!response.ok) {
+      throw new Error('works data request failed: ' + response.status);
+    }
+    return response.json();
+  }
+
+  function showLoadError() {
+    ['#magazine-list', '#pr-list'].forEach(function (selector) {
+      const list = document.querySelector(selector);
+      if (!list) return;
+      const message = document.createElement('p');
+      message.className = 'body-line';
+      message.setAttribute('role', 'status');
+      message.textContent = '掲載情報を読み込めませんでした。時間をおいて再度お試しください。';
+      list.appendChild(message);
+    });
+  }
+
+  async function render() {
+    let data;
+    try {
+      data = await loadData();
+    } catch (error) {
+      console.error('[cards] ' + error.message);
+      showLoadError();
+      return;
+    }
+
     const magList = document.querySelector('#magazine-list');
     if (magList && data.magazines) {
       data.magazines.forEach(function (item) { magList.appendChild(buildCard(item)); });
