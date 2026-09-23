@@ -1,6 +1,14 @@
 {
   "magazines": [
     {
+      "title": "AIにまかせる技術",
+      "description": "AIに何を見せるかを、自分で選べるようになるための記録。",
+      "body": "手持ちのAIで試せる小さな一手から、CodexやClaude Codeへ。コンテキスト設計を、勉強し直しながら確かめていきます。",
+      "url": "https://note.com/green_donguri/m/ma6ccc190097d",
+      "image": "https://assets.st-note.com/production/uploads/images/295652202/magazine_cover_landscape_2bc79b2c74515860c4ce792601a4e7ee.png",
+      "site": "note magazine"
+    },
+    {
       "title": "AIとの距離感",
       "description": "頼りすぎず、突き放しすぎず。日々のなかでAIをどう使うか、を綴ったエッセイ集。",
       "body": "便利さと違和感のあいだ。仕事と生活の隣にAIがいる時代の、ちょうどいい付き合い方を探っていきます。",
@@ -34,6 +42,51 @@
     }
   ],
   "pr": [
+    {
+      "title": "画像2枚から30秒アニメへ。AZ8のCanvasでAIに相談しながら作ってみた",
+      "description": "素材と生成結果をCanvasに残し、AIアシスタントと30秒アニメを組み立てた体験レポート。",
+      "body": "キャラクターと背景の2枚から、Seedance 2.5で戦闘アニメへ。ノードでつなぐ制作フローと実際の使い心地を紹介しました。",
+      "url": "https://note.com/green_donguri/n/n361b0f33761e",
+      "image": "https://assets.st-note.com/production/uploads/images/314154965/rectangle_large_type_2_bd5650d9f592cf67d6b0399495c3d9ca.png?fit=bounds&quality=85&width=1280",
+      "site": "note article",
+      "kind": "PR"
+    },
+    {
+      "title": "商品情報と写真だけ渡して、1ページの告知サイトを作ってもらった",
+      "description": "商品情報と写真1枚だけを渡し、1ページの告知サイトを丸ごと作ってもらった検証。",
+      "body": "構成、見出し、配色、HTML・CSSまでKimi K3に任せ、ノーコードでどこまで形になるかを確かめました。",
+      "url": "https://note.com/green_donguri/n/n3b3a67123f85",
+      "image": "https://assets.st-note.com/production/uploads/images/312791150/rectangle_large_type_2_5f244298b967aa264c59aa0fde04dfd4.png?fit=bounds&quality=85&width=1280",
+      "site": "note article",
+      "kind": "PR"
+    },
+    {
+      "title": "犬とどんぐりの30秒アニメをRenoise Agentで作ってみた",
+      "description": "Renoise Agentと、犬とどんぐりが共闘する30秒アニメを作った体験レポート。",
+      "body": "画像・動画・音声のモデル選びから生成までを会話で進め、同じキャラクターで物語をつなぐ工程を紹介しました。",
+      "url": "https://note.com/green_donguri/n/nbc35fb6614f5",
+      "image": "https://assets.st-note.com/production/uploads/images/307234694/rectangle_large_type_2_b884ce6e8cde8f7903ce610cecb7abf5.png?fit=bounds&quality=85&width=1280",
+      "site": "note article",
+      "kind": "PR"
+    },
+    {
+      "title": "旅行を少し楽しく。SkyworkのSkills Packで週末旅行のしおりを作ってみた",
+      "description": "SkyworkのSkills Packで、1泊2日の旅行準備一式を作った体験レポート。",
+      "body": "旅の概要、行程表、持ち物、問い合わせメール、表紙画像まで、友人へ共有できる旅のしおりにまとめました。",
+      "url": "https://note.com/green_donguri/n/nf95f06f06f75",
+      "image": "https://assets.st-note.com/production/uploads/images/287155242/rectangle_large_type_2_f3895783eeee88115f405bfa0d11ffb7.png?fit=bounds&quality=85&width=1280",
+      "site": "note article",
+      "kind": "PR"
+    },
+    {
+      "title": "Bandy AIで商品画像セット&動画を作って遊んでみた",
+      "description": "商品画像からEC向けの画像セットと動画を作る、Bandy AIの体験レポート。",
+      "body": "撮影やモデル手配をせず、商品素材をどこまで揃えられるかを柴犬モチーフの商品で試しました。",
+      "url": "https://note.com/green_donguri/n/n1127fdec69af",
+      "image": "https://assets.st-note.com/production/uploads/images/232934175/rectangle_large_type_2_0843fcb7e752a5ceb9db281711692490.jpg?fit=bounds&quality=85&width=1280",
+      "site": "note article",
+      "kind": "PR"
+    },
     {
       "title": "Immersive Translateとの記録",
       "description": "AI翻訳ツール Immersive Translate を実際に使いながら届けるPR連載マガジン。",
