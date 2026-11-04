@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#dbe9e3" />
+    <meta name="description" content="犬とどんぐりと、森をひとっ走り。画面のどこでも、タイミングを合わせてタップ。" />
+    <title>犬とどんぐり｜森を、ひとっ走り。</title>
+    <script type="module" crossorigin src="./assets/index-BuvkO8rm.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-DEL6tQ5r.css">
+  </head>
+  <body>
+    <main id="game" data-phase="loading" tabindex="0" aria-label="犬とどんぐり。画面のどこでもタップして遊べます。キーボードではスペースまたはエンター。">
+      <div id="scene" aria-hidden="true"></div>
+      <svg class="svg-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+        <symbol id="leaf-mark" viewBox="0 0 32 40"><path fill="currentColor" d="M30 1C13 2 2 12 3 25c0 4 2 7 5 9L2 39l3 1 6-7c12 2 19-12 19-32Z"/><path d="m8 31 15-20" stroke="var(--leaf-vein, #f7f2da)" stroke-width="1.5" fill="none"/></symbol>
+        <symbol id="forward-mark" viewBox="0 0 24 32"><path fill="currentColor" d="M3 2 22 16 3 30l4-14Z"/></symbol>
+      </defs></svg>
+      <div class="edge-art" aria-hidden="true"></div>
+      <button id="sound-toggle" data-ui-control type="button" aria-label="音を切る" aria-pressed="true"><svg viewBox="0 0 28 28" aria-hidden="true"><path d="M4 11h5l6-5v16l-6-5H4Z" fill="currentColor"/><path class="sound-waves" d="M19 9q6 5 0 10M22 5q10 9 0 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path class="sound-slash" d="m5 4 19 20" stroke="currentColor" stroke-width="2.5"/></svg></button>
+      <header id="intro">
+        <h1><span class="title-line"><span>犬と</span><svg><use href="#leaf-mark"/></svg></span><span class="title-line">どんぐり</span></h1>
+        <p class="subtitle-ribbon">森を、ひとっ走り。</p>
+      </header>
+      <div id="run-progress" class="invisible" role="progressbar" aria-label="障害物の突破数" aria-valuemin="0" aria-valuemax="8" aria-valuenow="0">
+        <span id="run-count">00<span>/08</span></span><span id="run-leaves" class="leaf-progress" aria-hidden="true"></span>
+      </div>
+      <section id="message" class="is-visible" aria-live="polite" aria-atomic="true">
+        <div class="result-heading"><strong id="message-english">LOADING</strong><h2 id="message-title">森を準備しています</h2></div>
+        <div id="result-summary" class="result-summary" hidden>
+          <div class="result-score" aria-label="スコア"><span>SCORE</span><b id="result-score">0</b></div>
+          <span id="result-label">突破</span><b id="result-count">00/08</b><span id="result-leaves" class="leaf-progress" aria-hidden="true"></span>
+        </div>
+        <button id="primary-action" type="button" hidden><span id="action-english">START</span><svg aria-hidden="true"><use href="#forward-mark"/></svg><span id="action-japanese">タップでスタート</span></button>
+        <p id="message-detail">もうすぐ、出発。</p>
+      </section>
+      <div id="tap-guide" class="invisible" aria-hidden="true">
+        <div id="rhythm">
+          <div class="tap-target"></div><div id="approach-ring"></div><svg class="target-leaf"><use href="#leaf-mark"/></svg>
+          <span id="tap-label">TAP</span>
+        </div>
+        <p id="cue" role="status" aria-live="polite"></p>
+      </div>
+      <div id="tap-acknowledgment" aria-hidden="true"><div id="tap-press"></div><div id="tap-echo"></div></div>
+      <div id="tap-feedback" class="invisible" role="status" aria-live="polite" aria-atomic="true"><strong></strong><span></span><svg aria-hidden="true"><use href="#leaf-mark"/></svg></div>
+    </main>
+    <noscript>遊ぶにはJavaScriptを有効にしてください。</noscript>
+  </body>
+</html>
