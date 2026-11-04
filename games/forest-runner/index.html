@@ -6,11 +6,21 @@
     <meta name="theme-color" content="#dbe9e3" />
     <meta name="description" content="犬とどんぐりと、森をひとっ走り。画面のどこでも、タイミングを合わせてタップ。" />
     <title>犬とどんぐり｜森を、ひとっ走り。</title>
-    <script type="module" crossorigin src="./assets/index-BuvkO8rm.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-DEL6tQ5r.css">
+    <script type="module" crossorigin src="./assets/index-DPsH5M8-.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-Bkmq17Pv.css">
   </head>
   <body>
     <main id="game" data-phase="loading" tabindex="0" aria-label="犬とどんぐり。画面のどこでもタップして遊べます。キーボードではスペースまたはエンター。">
+      <section id="loading-screen" role="status" aria-live="polite" aria-label="ゲームの読み込み">
+        <div class="loading-card">
+          <svg class="loading-leaf" viewBox="0 0 32 40" aria-hidden="true"><path d="M30 1C13 2 2 12 3 25c0 4 2 7 5 9L2 39l3 1 6-7c12 2 19-12 19-32Z" fill="currentColor"/></svg>
+          <p class="loading-eyebrow">FOREST RUN</p>
+          <h2 id="loading-title">森を準備しています</h2>
+          <p id="loading-detail">もうすぐ、出発。</p>
+          <progress id="loading-progress" max="10" value="0" aria-label="森の読み込み"></progress>
+          <ol class="loading-steps" aria-label="出発までの準備"><li data-loading-step="assets" class="active">森とふたり</li><li data-loading-step="motion">動きと音</li><li data-loading-step="graphics">出発</li></ol>
+        </div>
+      </section>
       <div id="scene" aria-hidden="true"></div>
       <svg class="svg-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
         <symbol id="leaf-mark" viewBox="0 0 32 40"><path fill="currentColor" d="M30 1C13 2 2 12 3 25c0 4 2 7 5 9L2 39l3 1 6-7c12 2 19-12 19-32Z"/><path d="m8 31 15-20" stroke="var(--leaf-vein, #f7f2da)" stroke-width="1.5" fill="none"/></symbol>
