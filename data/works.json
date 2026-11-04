@@ -43,6 +43,69 @@
   ],
   "pr": [
     {
+      "title": "家でアニメを見ながら歩くのは快適。足りないのは、うちの部屋の広さ",
+      "description": "WalkingPad MX10を自宅に設置し、アニメを見ながら歩いた実機レビュー。",
+      "body": "休日の動画鑑賞を歩く時間に重ね、設置場所、重さ、移動のしやすさなど、使って分かった点を紹介しました。",
+      "url": "https://note.com/green_donguri/n/n033ae790312b",
+      "image": "https://assets.st-note.com/production/uploads/images/326932558/rectangle_large_type_2_02becf838bac8d7d06e03a7be0a6b73f.png?fit=bounds&quality=85&width=1280",
+      "site": "note article",
+      "kind": "PR"
+    },
+    {
+      "title": "おまかせのドラマに、途中で口を出す。",
+      "description": "Pollo AIのMarketing StudioとPollo MCPで、短編ドラマの広告を作った体験レポート。",
+      "body": "架空の充電式カイロを題材に、画像づくり、ドラマ生成、Claude Codeとの会話による仕上げを紹介しました。",
+      "url": "https://note.com/green_donguri/n/n51c67587b45f",
+      "image": "https://assets.st-note.com/production/uploads/images/325235627/rectangle_large_type_2_189342c5d21a548948aa09997aeeb6c5.png?fit=bounds&quality=85&width=1280",
+      "site": "note article",
+      "kind": "PR"
+    },
+    {
+      "title": "Pollo AI を開かずに、広告を一本。",
+      "description": "Claude CodeからPollo MCPを使い、会話で広告動画を作った体験レポート。",
+      "body": "架空の着る毛布を題材に、素材づくりから動画の生成・修正までを会話で進めた流れと、広告としての使い心地をまとめました。",
+      "url": "https://note.com/green_donguri/n/nbcbedb79f52a",
+      "image": "https://assets.st-note.com/production/uploads/images/320563681/rectangle_large_type_2_7543c0bccad466ed387673c20d7c7bf6.png?fit=bounds&quality=85&width=1280",
+      "site": "note article",
+      "kind": "PR"
+    },
+    {
+      "title": "会議や打ち合わせの録音を、あとから読み返したい人へ",
+      "description": "AIボイスレコーダーNotta Memo Proを、録音から文字起こし・要約まで試した実機レビュー。",
+      "body": "録音の自動転送やマーク機能を確かめ、短い講義の録音が資料になる流れと、人が確認したい点をまとめました。",
+      "url": "https://note.com/green_donguri/n/nc9a1679087ce",
+      "image": "https://assets.st-note.com/production/uploads/images/310383662/rectangle_large_type_2_b3d8e15e0f2d3d23c6930151c53839d4.png?fit=bounds&quality=85&width=1280",
+      "site": "note article",
+      "kind": "PR"
+    },
+    {
+      "title": "AIで作った事業サイト、あとからどこまで直せる？",
+      "description": "Readdyで架空の3業種の事業サイトを作り、修正から公開まで試したレビュー。",
+      "body": "出張写真サービス、カフェ、オンライン講座を題材に、生成後の見出し・画像・色の編集や、公開までの流れを確かめました。",
+      "url": "https://note.com/green_donguri/n/n9710dd685181",
+      "image": "https://assets.st-note.com/production/uploads/images/318561837/rectangle_large_type_2_94194df3889111cb2593572792351f64.png?fit=bounds&quality=85&width=1280",
+      "site": "note article",
+      "kind": "PR"
+    },
+    {
+      "title": "短い言葉から30秒アニメができた｜Renoise Agent × Canvas",
+      "description": "RenoiseのAgentとCanvasで、犬とどんぐりの森のパルクールアニメを作った体験レポート。",
+      "body": "短い言葉で方向を相談し、参照画像、カット割り、カメラ、音を確かめながら30秒の物語へ組み立てました。",
+      "url": "https://note.com/green_donguri/n/nabd41c100881",
+      "image": "https://assets.st-note.com/production/uploads/images/318184716/rectangle_large_type_2_a84414527bad4a63535e4409dd7083a2.png?fit=bounds&quality=85&width=1280",
+      "site": "note article",
+      "kind": "PR"
+    },
+    {
+      "title": "絵を三枚、渡してみた。",
+      "description": "商品・部屋・人物の3枚をPollo AIのMarketing Studioへ渡し、テレビCM広告を作った検証。",
+      "body": "架空のポータブル電源を題材に、おまかせのCMとSeedanceで組み立てた動画を比較。商品の細部や文字がどう残るかを確認しました。",
+      "url": "https://note.com/green_donguri/n/n8734887f58a4",
+      "image": "https://assets.st-note.com/production/uploads/images/317104312/rectangle_large_type_2_b32205cac0c4c271b1c6657c657bd415.jpeg?fit=bounds&quality=85&width=1280",
+      "site": "note article",
+      "kind": "PR"
+    },
+    {
       "title": "画像2枚から30秒アニメへ。AZ8のCanvasでAIに相談しながら作ってみた",
       "description": "素材と生成結果をCanvasに残し、AIアシスタントと30秒アニメを組み立てた体験レポート。",
       "body": "キャラクターと背景の2枚から、Seedance 2.5で戦闘アニメへ。ノードでつなぐ制作フローと実際の使い心地を紹介しました。",
