@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Games — 緑どんぐり</title>
+<meta name="description" content="緑どんぐりが作った、ブラウザで遊べるゲーム。犬とどんぐりと、森をひとっ走り。">
+<link rel="canonical" href="https://green27donguri.github.io/games/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="緑どんぐり">
+<meta property="og:url" content="https://green27donguri.github.io/games/">
+<meta property="og:title" content="Games — 緑どんぐり">
+<meta property="og:description" content="ブラウザで、気軽にひと遊び。犬とどんぐりと、森を駆け抜けよう。">
+<meta property="og:image" content="https://green27donguri.github.io/games/forest-runner/thumbnail.png">
+<meta property="og:image:width" content="1664">
+<meta property="og:image:height" content="936">
+<meta property="og:image:alt" content="犬とどんぐり — 森を、ひとっ走り。">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Games — 緑どんぐり">
+<meta name="twitter:description" content="ブラウザで、気軽にひと遊び。">
+<meta name="twitter:image" content="https://green27donguri.github.io/games/forest-runner/thumbnail.png">
+<meta name="twitter:image:alt" content="犬とどんぐり — 森を、ひとっ走り。">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/theme.css?v=20261104-games">
+<link rel="stylesheet" href="../css/sprite.css">
+<link rel="stylesheet" href="../css/games.css">
+<script src="../js/config.js"></script>
+<script src="../js/analytics.js"></script>
+</head>
+<body class="scene-active camera-pullback">
+
+<div class="scene" aria-hidden="true"></div>
+<div class="sprite-track" aria-hidden="true">
+  <div class="sprite-pos shiba"><div class="sprite-stage"><div class="sprite sprite-shiba"></div></div></div>
+  <div class="sprite-pos acorn"><div class="acorn-physics"><div class="sprite-stage"><div class="sprite sprite-acorn"></div></div></div></div>
+</div>
+
+<div class="app">
+  <main class="page-shell wide">
+    <nav class="glass-nav intro-build" data-delay="1" aria-label="グローバルナビゲーション">
+      <a class="brand" href="../profile.html">
+        <span class="pulse" aria-hidden="true"></span>
+        <span>green_donguri</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="../profile.html">profile</a>
+        <a class="nav-link" href="../services.html">services</a>
+        <a class="nav-link" href="../works.html">works</a>
+        <a class="nav-link active" href="./" aria-current="page">games</a>
+        <a class="nav-link" href="../pr.html">sponsor</a>
+        <a class="nav-cta" href="../index.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11 L 12 3 L 21 11"/><path d="M5 10 V 21 H 19 V 10"/></svg>
+          <span>contact</span>
+        </a>
+      </div>
+    </nav>
+
+    <header class="games-heading intro-build" data-delay="2">
+      <p class="eyebrow"><span class="dot" aria-hidden="true"></span>games / play</p>
+      <h1 class="h-display">Games</h1>
+      <p class="games-lead">ブラウザで、気軽にひと遊び。</p>
+    </header>
+
+    <article class="game-feature intro-build" data-delay="3" aria-labelledby="forest-runner-title">
+      <a class="game-cover" href="forest-runner/" aria-label="犬とどんぐりを遊ぶ">
+        <img src="forest-runner/thumbnail.png" width="1664" height="936" alt="森を駆ける犬とどんぐり。犬とどんぐり — 森を、ひとっ走り。" fetchpriority="high">
+      </a>
+      <div class="game-details">
+        <ul class="game-tags" aria-label="対応端末と操作">
+          <li>スマホ・PC</li>
+          <li>タップ・クリック</li>
+        </ul>
+        <h2 id="forest-runner-title">犬とどんぐり</h2>
+        <p class="game-tagline">森を、ひとっ走り。</p>
+        <p class="game-description">タイミングよくタップして、ふたりと森を駆け抜けよう。</p>
+        <a class="home-cta game-play" href="forest-runner/">
+          <span>遊ぶ</span>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5 L 19 12 L 8 19 Z"/></svg>
+        </a>
+      </div>
+    </article>
+
+    <footer class="site-copy">© 2026 緑どんぐり</footer>
+  </main>
+</div>
+
+<script src="../js/sprite.js"></script>
+<script src="../js/effects.js"></script>
+<script src="../js/forest.js"></script>
+<script src="../js/clouds.js"></script>
+</body>
+</html>

@@ -218,6 +218,30 @@
 .nav-cta:active { transform: scale(0.97); }
 .nav-cta svg { width: 13px; height: 13px; }
 
+@media (max-width: 760px) {
+  .glass-nav {
+    top: 8px;
+    padding: 8px;
+    border-radius: var(--r-lg);
+    margin-bottom: var(--space-6);
+  }
+  .glass-nav .brand { display: none; }
+  .nav-links {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+    gap: 4px;
+  }
+  .nav-links .nav-link, .nav-cta {
+    justify-content: center;
+    min-height: 44px;
+    padding: 8px;
+    font-size: 13px;
+  }
+  .nav-cta { margin-left: 0; gap: 5px; }
+  .nav-cta svg { width: 12px; height: 12px; }
+}
+
 .eyebrow {
   font-family: var(--font-mono);
   font-size: 11px;
@@ -867,17 +891,6 @@ h1, h2, h3 { color: var(--text); margin: 0; }
   .form-actions { flex-direction: column-reverse; }
   .form-actions button { width: 100%; }
   .footer-back { flex-direction: column; align-items: flex-start; }
-  .glass-nav { top: 8px; padding: 6px 6px 6px 12px; }
-  .glass-nav .brand { font-size: 10px; padding: 3px 4px; gap: 6px; }
-  .glass-nav .brand span:not(.pulse) { display: none; }
-  .nav-links { gap: 2px; }
-  .nav-links .nav-link {
-    padding: 6px 9px;
-    font-size: 10.5px;
-    letter-spacing: 0.02em;
-  }
-  .nav-cta { padding: 7px 12px; font-size: 11px; margin-left: 3px; gap: 5px; }
-  .nav-cta svg { width: 11px; height: 11px; }
   .section { margin: var(--space-7) 0; }
   .h-display { font-size: clamp(28px, 8vw, 38px); letter-spacing: -1px; }
   .h-section { font-size: clamp(20px, 5vw, 26px); }
@@ -905,10 +918,4 @@ h1, h2, h3 { color: var(--text); margin: 0; }
 @media (max-width: 380px) {
   .h-display { font-size: 26px; }
   .hero-overlay h1 { font-size: 22px; }
-  .glass-nav { padding: 5px 5px 5px 10px; }
-  .glass-nav .brand { display: none; }
-  .nav-links .nav-link { padding: 6px 7px; font-size: 10px; }
-  .nav-cta { padding: 6px 10px; font-size: 10px; gap: 4px; }
-  .nav-cta span { display: inline; }
-  .nav-cta svg { width: 10px; height: 10px; }
 }
